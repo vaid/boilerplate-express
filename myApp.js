@@ -7,7 +7,8 @@ console.log("Hello World");
 // Had to restart for changes to take effect
 app.get("/", function (req, res) {
   // Serve a string
-  res.send("Hello Express");
+  const absolutepath = __dirname + "/views/index.html";
+  res.sendFile(absolutepath);
 });
 
 module.exports = app;
