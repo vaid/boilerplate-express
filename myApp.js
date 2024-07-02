@@ -11,4 +11,7 @@ app.get("/", function (req, res) {
   res.sendFile(absolutepath);
 });
 
+const absolutepath = __dirname + "/public";
+app.use("/public", express.static(absolutepath));
+
 module.exports = app;
