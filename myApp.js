@@ -14,4 +14,8 @@ app.get("/", function (req, res) {
 const absolutepath = __dirname + "/public";
 app.use("/public", express.static(absolutepath));
 
+app.get("/json", function (req, res) {
+  res.json({ message: "Hello json" });
+});
+
 module.exports = app;
