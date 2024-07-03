@@ -2,6 +2,15 @@ require("dotenv").config();
 
 let express = require("express");
 let app = express();
+
+// Implement a Root-Level Request Logger Middleware
+// As no path specified it will be mounted for all paths
+app.use(function (req, res, next) {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  // If next() is not done page will never be refreshed
+  next();
+});
+
 console.log("Hello World");
 // get is METHOD
 // "/" is PATH
