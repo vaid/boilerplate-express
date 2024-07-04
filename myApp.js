@@ -45,4 +45,14 @@ app.get(
   }
 );
 
+// Reading the parameters from the client/user
+// will respond with {"echo", "MeTheCoder"} for URL http://localhost:3000/MeTheCoder/echo
+app.get("/:word/echo", function (req, res) {
+  // console.log(req.params);
+  // console.log(req.params.word);
+  // const word_requested = req.params.word;
+  // res.json({ echo: word_requested });
+  res.json({ echo: req.params.word });
+});
+
 module.exports = app;
