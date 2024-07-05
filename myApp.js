@@ -1,5 +1,7 @@
 require("dotenv").config();
+// require("body-parser").config();
 
+let bodyParser = require("body-parser");
 let express = require("express");
 let app = express();
 
@@ -64,5 +66,7 @@ const respondToQueryString = (req, res) => {
 
 // http://localhost:3000/name?first=MeThe&last=Coder
 app.route("/name").get(respondToQueryString).post(respondToQueryString);
+
+app.use("/name", bodyParser.urlencoded({ extended: false }));
 
 module.exports = app;
