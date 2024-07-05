@@ -55,4 +55,14 @@ app.get("/:word/echo", function (req, res) {
   res.json({ echo: req.params.word });
 });
 
+const respondToQueryString = (req, res) => {
+  const queryString = req.query;
+  // console.log(queryString);
+  const response_String = queryString.first + " " + queryString.last;
+  res.json({ name: response_String });
+};
+
+// http://localhost:3000/name?first=MeThe&last=Coder
+app.route("/name").get(respondToQueryString).post(respondToQueryString);
+
 module.exports = app;
